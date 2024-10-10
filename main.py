@@ -15,4 +15,12 @@
 # elif number1 < number2:
 #     print('Second number is greater than first number')
 # else:
-#     print('Both are different')
+#     print('Both are different numbers)
+
+i = 1
+while i < 10:
+    print(i , 'Haadi')
+    
+    while i < 10:
+      print(i,'Haadi')
+      i = i + 2
