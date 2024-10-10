@@ -17,10 +17,38 @@
 # else:
 #     print('Both are different numbers)
 
-i = 1
-while i < 10:
-    print(i , 'Haadi')
-    
-    while i < 10:
-      print(i,'Haadi')
-      i = i + 2
+# while i < 10:
+#     print(i,'Haadi')
+#     i = i + 2
+#     while i < 10:
+#        print(i,'Haadi')
+#        i = i + 2
+
+# for i in range(0,5):
+#     print(f'{i}. Haadi')
+
+# ab = 10
+# bc = 20
+
+# def number_add(a, b):
+#     sum = a + b
+#     return sum
+# new_sum = number_add(ab,bc)
+# print(f'Sum is {new_sum}')
+
+# import random
+
+# x = random.random()
+# print(x)
+
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return 'Hello world'
+
+if __name__ == "__main__":
+    app.run(debug = True)
