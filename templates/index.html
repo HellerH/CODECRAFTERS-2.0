@@ -1,29 +1,22 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"
-    <title>Movie Recommender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
 </head>
 <body>
-    <h1>Movie Recommendation System</h1>
-    <form method="POST" action="/recommend">
-        <lable for="genre">Enter Genre:</lable>
-        <input type="text" id ="genre" name="genre" required>
-        <button type="submit">Get Recommendations</button>
+    <h1>To-Do List</h1>
+    <form action="/add" method="post">
+        <input type="text" name="task" required>
+        <button type="submit">Add Task</button>
     </form>
-
-    {% if recommendations %}
-    <h2>Recommended Movies:</h2>
     <ul>
-        {% for movie in recommendations.itertuples() %}
+        {% for task in tasks %}
             <li>
-                <strong>{{ movie.title }}</strong> - Rank: {{ movie.rank }} - Genre: {{ movie.genre }}
-                - Revenue: {{ movie.revenue }} - Metascore: {{ movie.metascore }}<br>
-                <em>{{ movie.description }}</em>
+                {{ task }} <a href="{{ url_for('delete_task', task_id=loop.index0) }}">Delete</a>
             </li>
-            {% endfor %}
+        {% endfor %}
     </ul>
-    {% endif %}
 </body>
 </html>
