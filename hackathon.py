@@ -22,13 +22,14 @@
 
 from flask import Flask, request, render_template
 import pandas as pd
+import ast
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 
 #Load the Dataset
-df = pd.read_csv('tmdb_5000_movies.csv')
+df = pd.read_csv('Content_Base_Recommendation_System.csv')
 
 # Preprocess the data
 tfidf = TfidfVectorizer(stop_words='english')
