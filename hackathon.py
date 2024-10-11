@@ -29,7 +29,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 app = Flask(__name__)
 
 #Load the Dataset
-df = pd.read_csv('Content_Base_Recommendation_System.csv')
+df = pd.read_csv('IMDB-Movie-Data.csv')
 
 # Preprocess the data
 tfidf = TfidfVectorizer(stop_words='english')
