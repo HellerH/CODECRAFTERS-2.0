@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
-    <title>Movie Recommendation system</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <title>Movie Recommender</title>
 </head>
 <body>
     <h1>Movie Recommendation System</h1>
-    <form action="/recommend" method="post"
-        <label for="movie">Enter a movie title:</label>
-        <input type="text" id="movie" name="movie">
-        <input type="submit" value="Get Recommendations">
+    <form method="POST" action="/recommend">
+        <lable for="genre">Enter Genre:</lable>
+        <input type="text" id ="genre" name="genre" required>
+        <button type="submit">Get Recommendations</button>
     </form>
+
+    {% if recommendations %}
+    <h2>Recommended Movies:</h2>
+    <ul>
+        {% for movie in recommendations.itertuples() %}
+            <li>
+                <strong>{{ movie.title }}</strong> - Rank: {{ movie.rank }} - Genre: {{ movie.genre }}
+                - Revenue: {{ movie.revenue }} - Metascore: {{ movie.metascore }}<br>
+                <em>{{ movie.description }}</em>
+            </li>
+            {% endfor %}
+    </ul>
+    {% endif %}
 </body>
 </html>
